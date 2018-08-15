@@ -42,6 +42,10 @@ vcftools --vcf AspenSNPs.33.5K_n183.vcf --weir-fst-pop cluster1.txt --weir-fst-p
 vcftools --vcf AspenSNPs.33.5K_n183.vcf --weir-fst-pop cluster1.txt --weir-fst-pop cluster3.txt --out clust1_clust3_fst
 vcftools --vcf AspenSNPs.33.5K_n183.vcf --weir-fst-pop cluster2.txt --weir-fst-pop cluster3.txt --out clust2_clust3_fst
 
+cp clust1_clust2_fst.weir.fst clust1_clust2_fst.weir.fst.txt
+cp clust1_clust3_fst.weir.fst clust1_clust3_fst.weir.fst.txt
+cp clust2_clust3_fst.weir.fst clust2_clust3_fst.weir.fst.txt
+
 
 ############ SPLIT VCF BY REG AND NON-EDGE ADMIXTURE CLUSTER GROUPS.
 
@@ -74,22 +78,6 @@ vcftools --gzvcf AspenSNPs.33.5K_n183.vcf.gz --remove outgroup.txt --recode --re
 cp AspenSNPs.33.5K_n182.recode.vcf AspenSNPs.33.5K_n182.vcf
 #
 vcftools --vcf AspenSNPs.33.5K_n182.vcf --TsTv-summary --out transition_transversion_ratio
-
-
-
-###### LEFTOVER
-## Calculate pairwise FST between clusters using weir-fst-pop function in vcftools:
-vcftools --vcf AspenSNPs.33.5K_n182.vcf --weir-fst-pop cluster1.txt --weir-fst-pop cluster2.txt --out clust1_clust2_fst
-#
-vcftools --vcf AspenSNPs.33.5K_n182.vcf --weir-fst-pop cluster1.txt --weir-fst-pop cluster3_noOut.txt --out clust1_clust3_fst
-#
-vcftools --vcf AspenSNPs.33.5K_n182.vcf --weir-fst-pop cluster2.txt --weir-fst-pop cluster3_noOut.txt --out clust2_clust3_fst
-
-
-
-cp clust1_clust2_fst.weir.fst clust1_clust2_fst.weir.fst.txt
-cp clust1_clust3_fst.weir.fst clust1_clust3_fst.weir.fst.txt
-cp clust2_clust3_fst.weir.fst clust2_clust3_fst.weir.fst.txt
 
 
 
